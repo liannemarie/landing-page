@@ -82,7 +82,7 @@
     }
   },
   "dependencies": {
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "gray-matter": "^4.0.2",
     "js-yaml": "^3.14.0",
@@ -92,6 +92,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.0.0",
     "react": "17.0.1",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "17.0.1",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",

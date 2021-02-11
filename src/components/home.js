@@ -4,11 +4,14 @@ import Navbar from './navbar';
 import Button from './button';
 import FaqList from './faq-list';
 import FeaturedArticles from './featured-articles';
+// import Carousel from'./carousel';
 import VisuallyHidden from './visually-hidden';
 import styles from './home.module.css';
 import FeaturedOrganizations from './featured-organizations';
+import Carousel from 'react-bootstrap/Carousel';
+import Slider from './slider';
 
-export default function Home({ pressData, faqData, orgsData, downloadsData }) {
+export default function Home({ pressData, faqData, orgsData, downloadsData, endorsementsData }) {
   return (
     <>
       {/* <!-- HERO SECTION --> */}
@@ -272,6 +275,68 @@ export default function Home({ pressData, faqData, orgsData, downloadsData }) {
           </div>
         </div>
       </section>
+      
+      {/* <!-- ENDORSEMENT SECTION --> */}
+      <section id="endorsements" className={`${styles.section}`}>
+      <div className="container">
+      <div className="row">
+        <Slider step={0} ></Slider>
+      <Carousel className={styles.myCarousel}>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="/img/participating-logos/abine.svg"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item className={styles.myItem}>
+            <div className="container h-100">
+              <div className="row text-center">
+                <div className={` ${styles.myRow} col-12 pb-5`}>
+                  <p>QUOTE GOES HERE</p>
+                  {/* <img className="d-block w-100" src="img/participating-logos/abine.svg"></img> */}
+                </div> 
+                
+              </div>
+              <div className="row text-center">
+                <div className={` ${styles.myRow} col-12`}>
+                    <img className="d-block w-100" src="img/participating-logos/abine.svg"></img>
+                  </div>
+              </div>
+            </div>
+            {/* <img
+              className="d-block w-100"
+              src="/img/participating-logos/brave.svg"
+              alt="Third slide"
+            /> */}
+{/* 
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption> */}
+          </Carousel.Item>
+          {/* <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="/img/participating-logos/eff.svg"
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item> */}
+      </Carousel>
+        {/* <Carousel entries={endorsementsData.data.entries}/> */}
+      </div>
+    </div>
+    </section>
+
 
 
       {/* <!-- DOWNLOAD SECTION --> */}
@@ -313,7 +378,7 @@ export default function Home({ pressData, faqData, orgsData, downloadsData }) {
                     </div>
                     <div className={styles.tableDesc}>{name}</div>
                     <div className={styles.tableLink}>
-                      <a className="stretched-link" href={url}>
+                      <a className={` ${styles.tableLink} stretched-link`} href={url}>
                         LEARN MORE <VisuallyHidden>about {name}</VisuallyHidden>
                       </a>
                     </div>
@@ -326,7 +391,7 @@ export default function Home({ pressData, faqData, orgsData, downloadsData }) {
       </section>
 
       {/* <!-- PARTICIPATING ORGS SECTION --> */}
-      <section id="orgs" className={` ${styles.section} ${styles.sectionDark}`}>
+      <section id="orgs" className={` ${styles.section}`}>
         <div className="container">
           <h2 className={`${styles.sectionTitle} text-center`}>{orgsData.data.title}</h2>
           <div
@@ -455,6 +520,21 @@ Home.propTypes = {
           name: PropTypes.string.isRequired,
           url: PropTypes.string.isRequired,
           img: PropTypes.string.isRequired
+        })
+      ).isRequired
+    }).isRequired,
+    html: PropTypes.string.isRequired
+  }).isRequired,
+  endorsementsData: PropTypes.shape({
+    data: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      entries: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          position: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired,
+          img: PropTypes.string.isRequired,
+          quote: PropTypes.string.isRequired
         })
       ).isRequired
     }).isRequired,

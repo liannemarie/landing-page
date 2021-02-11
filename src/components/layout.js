@@ -55,6 +55,10 @@ export default function Layout({
         />
         <meta name="twitter:site" content="@globalprivcntrl" />
         <meta name="twitter:creator" content="@globalprivcntrl" />
+
+
+        {/* JQUUERY INSERT */}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       </Head>
 
       {/* <!-- GPC STATUS --> */}
